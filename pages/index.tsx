@@ -1,5 +1,5 @@
 import { useExtension } from '../hooks/useExtension'
-import { Dropdown } from '../components/Dropdown'
+import { Textarea } from '../components/Textarea'
 
 export default function Extension() {
   const { sdk, initialData, ready, required } = useExtension()
@@ -10,5 +10,5 @@ export default function Extension() {
 
   sdk.frame.startAutoResizer()
 
-  return <Dropdown sdk={sdk} initialData={initialData} required={required} />
+  return <Textarea sdk={sdk} initialData={initialData} required={required} />
 }

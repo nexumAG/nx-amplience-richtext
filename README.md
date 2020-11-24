@@ -1,10 +1,8 @@
-# nx-amplience-dropdown
+# nx-amplience-textarea
 
-This amplience extension is designed to show a dropdown with the following features:
+This amplience extension is designed to show a textarea with the following features:
 
-- Default value
-- No 'none' option
-- Use key/label (show label, send key)
+- Textarea
 
 ## Development
 

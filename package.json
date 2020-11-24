@@ -1,5 +1,5 @@
 {
-  "name": "nx-amplience-dropdown",
+  "name": "nx-amplience-textarea",
   "version": "1.0.0",
   "scripts": {
     "sec-dev": "node server.js",

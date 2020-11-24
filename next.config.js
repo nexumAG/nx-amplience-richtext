@@ -5,5 +5,5 @@
 const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  assetPrefix: !debug ? '/nx-amplience-dropdown/' : '',
+  assetPrefix: !debug ? '/nx-amplience-textarea/' : '',
 }
