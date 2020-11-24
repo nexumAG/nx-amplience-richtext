@@ -24,13 +24,16 @@ export function Textarea({
   }
 
   return (
-    <FormControl fullWidth required={required}>
-      <InputLabel id="textarea-label-id">{sdk.field.schema?.title}</InputLabel>
+    <FormControl fullWidth>
       <TextField
         rows={3}
         defaultValue={initialData}
         id="textarea-label-id"
         onChange={handleChange}
+        multiline
+        label={sdk.field.schema?.title}
+        variant="outlined"
+        required={required}
       />
       <FormHelperText>{sdk.field.schema?.description}</FormHelperText>
     </FormControl>
