@@ -1,12 +1,59 @@
 import React from 'react'
 import {
+  Box,
   FormControl,
   FormHelperText,
   TextField,
   Typography,
+  withStyles,
 } from '@material-ui/core'
 import { useTranslation } from '../hooks/useTranslate'
 import { useLocales } from '../hooks/useLocales'
+
+const StyledTitle = withStyles({
+  root: {
+    color: '#666666',
+    fontSize: '13px',
+    marginBottom: '0.5rem',
+  },
+})(Typography)
+
+const CssTextField = withStyles({
+  root: {
+    width: '100%',
+    '& .MuiInputBase-inputMultiline': {
+      fontSize: '13px',
+    },
+    '& label': {
+      fontSize: '13px',
+    },
+    '& label.Mui-focused': {
+      color: '#666666',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#039be5',
+    },
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: '#039be5',
+      },
+    },
+  },
+})(TextField)
+
+const CssBox = withStyles({
+  root: {
+    marginBottom: '0.5rem',
+    width: '100%',
+    '&:last-child': { marginBottom: '0' },
+  },
+})(Box)
+
+const CssFormHelperText = withStyles({
+  root: {
+    fontSize: '11px',
+  },
+})(FormHelperText)
 
 export function Textarea({
   initialData,
@@ -34,13 +81,13 @@ export function Textarea({
 
   return (
     <FormControl fullWidth>
-      <Typography variant="body2" gutterBottom>
+      <StyledTitle variant="body2" gutterBottom>
         {sdk.field.schema?.title}
-      </Typography>
+      </StyledTitle>
       {locales.available.map(({ locale }: any) => {
         return (
-          <React.Fragment key={locale}>
-            <TextField
+          <CssBox key={locale}>
+            <CssTextField
               defaultValue={
                 initialData?.values.find((t: any) => t.locale === locale)?.value
               }
@@ -51,10 +98,10 @@ export function Textarea({
               required={required}
               rows={3}
             />
-            <FormHelperText>
+            <CssFormHelperText>
               {`${sdk.field.schema?.description} ${locale}`}
-            </FormHelperText>
-          </React.Fragment>
+            </CssFormHelperText>
+          </CssBox>
         )
       })}
     </FormControl>
